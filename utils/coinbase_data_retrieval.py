@@ -51,7 +51,7 @@ if __name__ == "__main__":
     while date < end_date:
         start_time = date
         end_time = min(end_date, (date + timedelta(days=step_size-1)))
-        prices = get_historic_prices_as_df('BTC-USD', start_time, end_time, 86400)
+        prices = get_historic_prices_as_df('BTC-USD', start_time, end_time, 86400) # granularity = 1-day
         prices['Time'] = prices['Time'].apply(lambda x: x.date())
 
         all_prices = pd.concat([all_prices, prices], ignore_index=True)
